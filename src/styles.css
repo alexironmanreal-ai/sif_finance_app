@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "IBM Plex Sans", "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --color-bg: #081018;
+  --color-surface: #101922;
+  --color-raised: #172433;
+  --color-fg: #e7eef6;
+  --color-muted: #8ea0b5;
+  --color-line: #243246;
+  --color-primary: #6ea8e8;
+  --color-primary-ink: #07111b;
+  --color-pos: #3cba8b;
+  --color-neg: #e16d6d;
+  --color-warn: #e0b15c;
+  --radius-sm: 0.375rem;
+  --radius-md: 0.65rem;
+}
+
+@layer base {
+  html {
+    background: var(--color-bg);
+    color: var(--color-fg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    font-family: var(--font-sans);
+    min-height: 100vh;
+    line-height: 1.5;
+  }
+  h1, h2, h3 { text-wrap: balance; }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) { cursor: pointer; }
+  input, select, textarea { font: inherit; color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+}
+
+@media print {
+  body, .print-sheet, .print-sheet * { background: white !important; color: #111 !important; }
+  .no-print { display: none !important; }
+  .text-neg { color: #9b2c2c !important; }
+  .text-pos { color: #146c43 !important; }
+}
+
+.num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
